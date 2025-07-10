@@ -220,8 +220,10 @@
         }
 
         // Fetch Announcements in realtime
-        db.collection("announcements").orderBy("timestamp", "desc")
-            .onSnapshot(renderAnnouncements);
+       db.collection("announcements")
+  .orderBy("timestamp", "desc")
+  .limit(10)
+  .onSnapshot(renderAnnouncements);
 
         // Auth UI logic
         adminLoginBtn.onclick = () => showLoginSection();
